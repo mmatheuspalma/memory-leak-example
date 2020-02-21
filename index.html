@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title> Lorem ipsum si amet desur </title>
+    
+    <link rel="styesheet" href="https://raw.githubusercontent.com/daneden/animate.css/master/animate.css"/>
+
+    <style>
+      html, body {
+        width: 100%;
+        height: 100%;
+
+        margin: 0px;
+        padding: 0px;
+
+        overflow: hidden;
+      }
+
+      body {
+        position: relative;
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        font-size: 300px;
+
+        background-image: url('https://i.pinimg.com/originals/ff/36/75/ff3675727dfe841f61be5d41f5ee6ba4.jpg');
+        background-size: cover;
+      }
+
+      .character {
+        position: absolute;
+
+        height: 20%;
+        width: 10%;
+
+        background-image: url('https://ca.slack-edge.com/T028QL53B-UH711M1T9-333540ab4de1-512');
+        background-size: cover;
+        background-repeat: no-repeat;
+
+        border-radius: 100%;
+      }
+    </style>
+  </head>
+  <body>
+    <script>
+      const aleatoryPos = (isTop = false) => Math.floor(Math.random() * (isTop ? 80 : 90)) + 1;
+
+      const addCharacterOnAleatoryPoint = () => {
+        const char = document.createElement('div');
+        char.classList.add('character', 'animated', 'zoomIn');
+
+        char.style.top = `${aleatoryPos(true)}%`;
+        char.style.left = `${aleatoryPos()}%`;
+
+        document.querySelector('body').appendChild(char);
+
+
+        char.addEventListener('mouseover', () => {
+          char.style.top = `${aleatoryPos(true)}%`;
+          char.style.left = `${aleatoryPos()}%`;
+        });
+
+        char.addEventListener('dblclick', () => {
+          alert('vç ganhou');
+        })
+      }
+
+      addCharacterOnAleatoryPoint();
+    </script>
+  </body>
+</html>
